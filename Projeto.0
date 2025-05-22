@@ -6,7 +6,6 @@
 char nomes[10][20];
 int pontos[10][1];
 int n = 0;
-int m = 0;
 
 void menu(){
   system("cls");
@@ -84,13 +83,13 @@ void perguntasGeral(){
     printf("D: Tem 7 litros. São retirados 1,5 litros\n\n");
     scanf(" %c", &respostas);
     if(respostas == 'B' || respostas =='b'){
-        pontos[m][1]++;
+        pontos[n][1]++;
         printf("\nAcertou!\n\n");
-        printf("Pontos: %d\n\n", pontos[m][1]);
+        printf("Pontos: %d\n\n", pontos[n][1]);
     }
     else {
         printf("\nErrou!\n\n");
-        printf("Pontuação final: %d\n\n", pontos[m][1]);
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
         system("pause");
         return;
         system("cls");
@@ -105,13 +104,13 @@ void perguntasGeral(){
     printf("D: Estados Unidos\n\n");
     scanf(" %c", &respostas);
     if(respostas == 'C' || respostas =='c'){
-        pontos[m][1]++;
+        pontos[n][1]++;
         printf("\nAcertou!\n\n");
-        printf("Pontos: %d\n\n", pontos[m][1]);
+        printf("Pontos: %d\n\n", pontos[n][1]);
     }
     else {
         printf("\nErrou!\n\n");
-        printf("Pontuação final: %d\n\n", pontos[m][1]);
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
         system("pause");
         return;
         system("cls");
@@ -126,13 +125,13 @@ void perguntasGeral(){
     printf("D: São Marino e Índia\n\n");
     scanf(" %c", &respostas);
     if(respostas == 'A' || respostas =='a'){
-        pontos[m][1]++;
+        pontos[n][1]++;
         printf("\nAcertou!\n\n");
-        printf("Pontos: %d\n\n", pontos[m][1]);
+        printf("Pontos: %d\n\n", pontos[n][1]);
     }
     else {
         printf("\nErrou!\n\n");
-        printf("Pontuação final: %d\n\n", pontos[m][1]);
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
         system("pause");
         return;
         system("cls");
@@ -147,13 +146,13 @@ void perguntasGeral(){
     printf("D: 8 minutos\n\n");
     scanf(" %c", &respostas);
     if(respostas == 'D' || respostas =='d'){
-        pontos[m][1]++;
+        pontos[n][1]++;
         printf("\nAcertou!\n\n");
-        printf("Pontos: %d\n\n", pontos[m][1]);
+        printf("Pontos: %d\n\n", pontos[n][1]);
     }
     else {
         printf("\nErrou!\n\n");
-        printf("Pontuação final: %d\n\n", pontos[m][1]);
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
         system("pause");
         return;
         system("cls");
