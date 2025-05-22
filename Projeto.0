@@ -1,0 +1,635 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <strings.h>
+
+char nomes[10][20];
+int pontos[10][1];
+int n = 0;
+int m = 0;
+
+void menu(){
+  system("cls");
+  printf("Show do Milhão\n");
+  printf("1 - Iniciar\n");
+  printf("2 - Placar\n");
+  printf("3 - Sair\n");
+}
+
+void iniciar(){
+    registro();
+    escolherTema();
+}
+
+void registro(){
+    printf("Digite seu nome: ");
+    scanf("%s", nomes[n]);
+    printf("\n------------------\nJOGADOR REGISTRADO\n------------------\n\n");
+    system("pause");
+    system("cls");
+}
+
+void escolherTema(){
+    int alt;
+    printf(" 1) Conhecimentos gerais\n 2) Esportes\n 3) Tecnologia\n 4) Matemática\n 5) Artes\n\n Escolha um tema: ");
+    scanf("%d", &alt);
+    switch (alt) {
+        case 1: perguntasGeral();
+                break;
+        case 2: perguntasEsportes();
+                break;
+        case 3: perguntasTec();
+                break;
+        case 4: perguntasMat();
+                break;
+        case 5: perguntasArtes();
+                break;
+    }
+
+}
+
+void placar(){
+    int i, j, aux;
+    char temp[50];
+
+    for(i = 0; i < 10; i++){
+        for(j = i + 1; j < 10; j++){
+            if(pontos[j][1] > pontos[i][1]){
+                aux = pontos[i][1];
+                pontos[i][1] = pontos[j][1];
+                pontos[j][1] = aux;
+
+                strcpy(temp, nomes[i]);
+                strcpy(nomes[i], nomes[j]);
+                strcpy(nomes[j], temp);
+            }
+        }
+    }
+
+    printf("\n===== PLACAR =====\n");
+    for(i = 0; i < 10 && strlen(nomes[i]) > 0; i++){
+        printf("%s - %d pontos\n", nomes[i], pontos[i][1]);
+    }
+    system("pause");
+    system("cls");
+}
+
+void perguntasGeral(){
+    char respostas;
+    system("cls");
+    printf("1 - Normalmente, quantos litros de sangue uma pessoa tem? Em média, quantos são retirados numa doação de sangue?\n");
+    printf("A: Tem entre 2 a 4 litros. São retirados 450 mililitros\n");
+    printf("B: Tem entre 4 a 6 litros. São retirados 450 mililitros\n");
+    printf("C: Tem 10 litros. São retirados 2 litros\n");
+    printf("D: Tem 7 litros. São retirados 1,5 litros\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'B' || respostas =='b'){
+        pontos[m][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[m][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[m][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("2 - De onde é a invenção do chuveiro elétrico?\n");
+    printf("A: França\n");
+    printf("B: Inglaterra\n");
+    printf("C: Brasil\n");
+    printf("D: Estados Unidos\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'C' || respostas =='c'){
+        pontos[m][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[m][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[m][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("3 - Quais o menor e o maior país do mundo?\n");
+    printf("A: Vaticano e Rússia\n");
+    printf("B: Nauru e China\n");
+    printf("C: Mônaco e Canadá\n");
+    printf("D: São Marino e Índia\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'A' || respostas =='a'){
+        pontos[m][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[m][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[m][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("4 - Quanto tempo a luz do Sol demora para chegar à Terra?\n");
+    printf("A: 12 minutos\n");
+    printf("B: 1 dia\n");
+    printf("C: 12 horas\n");
+    printf("D: 8 minutos\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'D' || respostas =='d'){
+        pontos[m][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[m][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[m][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+}
+
+void perguntasEsportes(){
+    char respostas;
+    system("cls");
+
+    printf("1 - Qual país sediou a Copa do Mundo de 2014?\n");
+    printf("A: Alemanha\n");
+    printf("B: Brasil\n");
+    printf("C: Argentina\n");
+    printf("D: França\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'B' || respostas =='b'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("2 - Quantos jogadores compõem um time de futebol?\n");
+    printf("A: 10\n");
+    printf("B: 11\n");
+    printf("C: 12\n");
+    printf("D: 9\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'B' || respostas =='b'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("3 - Em qual esporte é usada a expressão touchdown?\n");
+    printf("A: Basquete\n");
+    printf("B: Futebol americano\n");
+    printf("C: Hóquei\n");
+    printf("D: Rugby\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'B' || respostas =='b'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("4 - Qual o nome da lenda do basquete que jogou no Chicago Bulls?\n");
+    printf("A: LeBron James\n");
+    printf("B: Stephen Curry\n");
+    printf("C: Michael Jordan\n");
+    printf("D: Kobe Bryant\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'C' || respostas =='c'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("5 - Em que país surgiu o Judô?\n");
+    printf("A: China\n");
+    printf("B: Coreia\n");
+    printf("C: Japão\n");
+    printf("D: Tailândia\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'C' || respostas =='c'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+}
+
+void perguntasTec(){
+    char respostas;
+    system("cls");
+
+    printf("1 - O que significa WWW na internet?\n");
+    printf("A: World Wide Web\n");
+    printf("B: Web With Windows\n");
+    printf("C: Wide Web World\n");
+    printf("D: Windows Web Way\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'A' || respostas =='a'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("2 - Qual é a empresa criadora do sistema Android?\n");
+    printf("A: Apple\n");
+    printf("B: Microsoft\n");
+    printf("C: Google\n");
+    printf("D: Samsung\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'C' || respostas =='c'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("3 - Qual é a principal linguagem usada para criar páginas web?\n");
+    printf("A: Python\n");
+    printf("B: C++\n");
+    printf("C: Java\n");
+    printf("D: HTML\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'D' || respostas =='d'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("4 - O que é um bit?\n");
+    printf("A: Um software\n");
+    printf("B: Unidade de armazenamento\n");
+    printf("C: Unidade de velocidade\n");
+    printf("D: Tipo de vírus\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'B' || respostas =='b'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("5 - Qual dessas empresas foi fundada por Steve Jobs?\n");
+    printf("A: IBM\n");
+    printf("B: Apple\n");
+    printf("C: Intel\n");
+    printf("D: Dell\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'B' || respostas =='b'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+}
+
+void perguntasMat(){
+    char respostas;
+    system("cls");
+
+    printf("1 - Quanto é 5 + 3 x 2?\n");
+    printf("A: 11\n");
+    printf("B: 16\n");
+    printf("C: 13\n");
+    printf("D: 10\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'A' || respostas =='a'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("2 - Qual é a raiz quadrada de 81?\n");
+    printf("A: 8\n");
+    printf("B: 9\n");
+    printf("C: 7\n");
+    printf("D: 6\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'B' || respostas =='b'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("3 - Quanto é 15 por cento de 200?\n");
+    printf("A: 25\n");
+    printf("B: 35\n");
+    printf("C: 20\n");
+    printf("D: 30\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'D' || respostas =='d'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("4 - Qual o número pi arredondado até duas casas decimais?\n");
+    printf("A: 3,12\n");
+    printf("B: 3,16\n");
+    printf("C: 3,14\n");
+    printf("D: 3,10\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'C' || respostas =='c'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("5 - Qual dessas é uma fração equivalente a 1/2?\n");
+    printf("A: 2/4\n");
+    printf("B: 2/3\n");
+    printf("C: 3/5\n");
+    printf("D: 3/6\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'A' || respostas =='a'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+}
+
+void perguntasArtes(){
+    char respostas;
+    system("cls");
+
+    printf("1 - Quem pintou a Mona Lisa?\n");
+    printf("A: Michelangelo\n");
+    printf("B: Van Gogh\n");
+    printf("C: Leonardo Da Vinci\n");
+    printf("D: Picasso\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'C' || respostas =='c'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("2 - Qual é o estilo musical de Beethoven?\n");
+    printf("A: Jazz\n");
+    printf("B: Clássico\n");
+    printf("C: Rock\n");
+    printf("D: Eletrônico\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'B' || respostas =='b'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("3 - Em que país surgiu o balé clássico?\n");
+    printf("A: Rússia\n");
+    printf("B: Alemanha\n");
+    printf("C: Itália\n");
+    printf("D: França\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'D' || respostas =='d'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("4 - Qual a principal cor primária?\n");
+    printf("A: Verde\n");
+    printf("B: Vermelho\n");
+    printf("C: Azul\n");
+    printf("D: Verde\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'B' || respostas =='b'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+
+    printf("5 - Qual pintor é conhecido por cortar a própria orelha?\n");
+    printf("A: Monet\n");
+    printf("B: Van Gogh\n");
+    printf("C: Renoir\n");
+    printf("D: Dalí\n\n");
+    scanf(" %c", &respostas);
+    if(respostas == 'B' || respostas =='b'){
+        pontos[n][1]++;
+        printf("\nAcertou!\n\n");
+        printf("Pontos: %d\n\n", pontos[n][1]);
+    }
+    else {
+        printf("\nErrou!\n\n");
+        printf("Pontuação final: %d\n\n", pontos[n][1]);
+        system("pause");
+        return;
+        system("cls");
+    }
+    system("pause");
+    system("cls");
+}
+
+int main(){
+    setlocale(LC_ALL, "Portuguese");
+
+    int opcao;
+
+
+    do {
+        menu();
+        scanf("%d", &opcao);
+        system("cls");
+
+        switch (opcao){
+        case 1:
+            system("cls");
+            iniciar();
+            break;
+            system("cls");
+        case 2:
+            placar();
+            break;
+        case 3:
+            break;
+        case 5:
+            registro();
+            break;
+            }
+
+
+    } while(opcao != 3);
+    return 0;
+}
